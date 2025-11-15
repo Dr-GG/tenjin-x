@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The package icon for Tenjin was made by https://www.flaticon.com/authors/darius-dan from https://www.flaticon.com -->
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>TenjinX</PackageId>
+    <Authors>Gerard Gouws</Authors>
+    <Company>Tenjin-X Utilities</Company>
+    <Description>A lightweight collection of convenient C# extension and method utilties</Description>
+    <PackageIcon>tenjin-x.png</PackageIcon>
+    <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Dr-GG/tenjin-x</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Dr-GG/tenjin-x</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>main</RepositoryBranch>
+    <PackageTags>C# extension methods;C# utility methods</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="tenjin-x.png" Pack="true" PackagePath="\" />
+    <None Include="NUGET_README.md" Pack="true" PackagePath="\" />
+    <None Include="$(OutputPath)\$(AssemblyName).pdb" Pack="true" PackagePath="lib\$(TargetFramework)" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,38 @@
+name: Publish .NET Nuget Package
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read parameters
+        id: params
+        run: |
+          echo "dotnet_version=$(jq -r .dotnet_version .github/parameters.json)" >> $GITHUB_OUTPUT
+          echo "solution_path=$(jq -r .solution_path .github/parameters.json)" >> $GITHUB_OUTPUT
+          echo "nuget_version=$(jq -r .nuget_version .github/parameters.json)" >> $GITHUB_OUTPUT
+          echo "nuget_project_path=$(jq -r .nuget_project_path .github/parameters.json)" >> $GITHUB_OUTPUT
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ steps.params.outputs.dotnet_version }}
+
+      - name: Restore
+        run: dotnet restore ${{ steps.params.outputs.solution_path }}
+
+      - name: Build
+        run: dotnet build ${{ steps.params.outputs.solution_path }} --configuration Release --no-restore
+
+      - name: Package Nuget Content
+        run: dotnet pack ${{ steps.params.outputs.nuget_project_path }} --configuration Release --no-build --output ./nupkg /p:PackageVersion=${{ steps.params.outputs.nuget_version }}
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json

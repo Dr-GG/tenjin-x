@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Applications/" />
+  <Folder Name="/Applications/Code Generators/">
+    <Project Path="TenjinX.Tools.Applications.CodeGenerators.MimeTypes/TenjinX.Tools.Applications.CodeGenerators.MimeTypes.csproj" />
+  </Folder>
+</Solution>
