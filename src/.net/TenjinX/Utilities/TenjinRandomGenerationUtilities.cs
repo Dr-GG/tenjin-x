@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Text;
 using TenjinX.Exceptions.Random;
 using TenjinX.Extensions;
@@ -15,22 +14,22 @@ public static class TenjinRandomGenerationUtilities
     /// <summary>
     /// The minimum <see cref="int"/> value that can be generated.
     /// </summary>
-    public const int MinimumInt32 = int.MinValue;
+    public const int RandomMinimumInt32 = int.MinValue;
 
     /// <summary>
     /// The maximum <see cref="int"/> value that can be generated.
     /// </summary>
-    public const int MaximumInt32 = int.MaxValue - 1;
+    public const int RandomMaximumInt32 = int.MaxValue - 1;
 
     /// <summary>
     /// The minimum <see cref="double"/> value that can be generated.
     /// </summary>
-    public const double MinimumDouble = 0.0;
+    public const double RandomMinimumDouble = 0.0;
 
     /// <summary>
     /// The maximum <see cref="double"/> value that can be generated.
     /// </summary>
-    public const double MaximumDouble = 1.0;
+    public const double RandomMaximumDouble = 1.0;
 
     /// <summary>
     /// Generates a random <see cref="double"/>.
@@ -40,8 +39,8 @@ public static class TenjinRandomGenerationUtilities
         AssertRandomDoubleGenerationParameters(parameters);
 
         var random = GetRandom(parameters);
-        var minimum = parameters.MinimumDouble ?? MinimumDouble;
-        var maximum = parameters.MaximumDouble ?? MaximumDouble;
+        var minimum = parameters.MinimumDouble ?? RandomMinimumDouble;
+        var maximum = parameters.MaximumDouble ?? RandomMaximumDouble;
 
         return random.NextDouble() * (maximum - minimum) + minimum;
     }
@@ -54,8 +53,8 @@ public static class TenjinRandomGenerationUtilities
         AssertRandomInt32GenerationParameters(parameters);
 
         var random = GetRandom(parameters);
-        var minimum = parameters.MinimumInt32 ?? MinimumInt32;
-        var maximum = parameters.MaximumInt32 ?? MaximumInt32;
+        var minimum = parameters.MinimumInt32 ?? RandomMinimumInt32;
+        var maximum = parameters.MaximumInt32 ?? RandomMaximumInt32;
 
         return random.Next(minimum, maximum + 1);
     }
@@ -100,8 +99,6 @@ public static class TenjinRandomGenerationUtilities
         return (uint)random.Next((int)minimum, (int)maximum + 1);
     }
 
-#pragma warning disable S2245 // Make sure that using this pseudorandom number generator is safe here.
-
     private static Random GetRandom(TenjinRandomGenerationParameters parameters)
     {
         if (parameters.Random != null)
@@ -114,19 +111,8 @@ public static class TenjinRandomGenerationUtilities
             return new Random(parameters.Seed.Value);
         }
 
-        var seedBytes = new byte[16];
-
-        using (var rng = RandomNumberGenerator.Create())
-        {
-            rng.GetBytes(seedBytes);
-        }
-
-        var seed = BitConverter.ToInt32(seedBytes, 0);
-
-        return new Random(seed);
+        return Random.Shared;
     }
-
-#pragma warning restore S2245 // Make sure that using this pseudorandom number generator is safe here.
 
     private static void AssertRandomDoubleGenerationParameters(TenjinRandomGenerationParameters parameters)
     {

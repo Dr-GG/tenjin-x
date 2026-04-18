@@ -13,9 +13,9 @@ namespace TenjinX.Extensions;
 public static class EnumerableExtensions
 {
     /// <summary>
-    /// Enumerates an <see cref="IEnumerable{T}"/> to an <see cref="IList{T}"/> instance.
+    /// Enumerates an <see cref="IEnumerable{T}"/> to an <see cref="List{T}"/> instance.
     /// </summary>
-    public static IList<T> EnumerateToList<T>(this IEnumerable<T> enumerable)
+    public static List<T> EnumerateToList<T>(this IEnumerable<T> enumerable)
     {
         if (enumerable is List<T> list)
         {
@@ -62,7 +62,7 @@ public static class EnumerableExtensions
     /// </summary>
     public static int LastIndexOf<T>(this IEnumerable<T> enumerable, T item)
     {
-        var list = enumerable.ToList();
+        var list = enumerable.EnumerateToList();
 
         return list.FindLastIndex(i => EqualityComparer<T>.Default.Equals(i, item));
     }
@@ -72,7 +72,7 @@ public static class EnumerableExtensions
     /// </summary>
     public static int LastIndexOf<T>(this IEnumerable<T> enumerable, Predicate<T> match)
     {
-        var list = enumerable.ToList();
+        var list = enumerable.EnumerateToList();
 
         return list.FindLastIndex(match);
     }
@@ -82,7 +82,7 @@ public static class EnumerableExtensions
     /// </summary>
     public static int IndexOf<T>(this IEnumerable<T> enumerable, Predicate<T> match)
     {
-        var list = enumerable.ToList();
+        var list = enumerable.EnumerateToList();
 
         return list.FindIndex(match);
     }
@@ -92,7 +92,9 @@ public static class EnumerableExtensions
     /// </summary>
     public static int LastIndex<T>(this IEnumerable<T> enumerable)
     {
-        return enumerable.Count() - 1;
+        var list = enumerable.EnumerateToList();
+
+        return list.Count - 1;
     }
 
     /// <summary>
@@ -116,7 +118,7 @@ public static class EnumerableExtensions
                 return [enumerable];
         }
 
-        var list = enumerable.ToList();
+        var list = enumerable.EnumerateToList();
 
         if (list.IsEmpty())
         {
@@ -201,7 +203,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    /// Determines if an <see cref="IEnumerable{T}"/> does not contain all items from another <see cref="IEnumerable{T}"/>.
+    /// Determines if an <see cref="IEnumerable{T}"/> does not contain any items from another <see cref="IEnumerable{T}"/>.
     /// </summary>
     public static bool DoesNotContainAny<T>(this IEnumerable<T> enumerable, IEnumerable<T> items)
     {

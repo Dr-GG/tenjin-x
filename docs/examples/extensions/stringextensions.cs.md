@@ -13,7 +13,7 @@ using TenjinX.Extensions;
 
 // IsNotNullAndEmpty
 ((string?)null).IsNotNullAndEmpty();    // True
-strNull.IsNotNullAndEmpty();            // False
+"Hello".IsNotNullAndEmpty();            // False
 
 // IsNullOrWhiteSpace
 "   ".IsNullOrWhiteSpace();     // True

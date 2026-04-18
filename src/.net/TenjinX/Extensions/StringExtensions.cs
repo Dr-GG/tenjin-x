@@ -21,7 +21,7 @@ public static class StringExtensions
     /// </summary>
     public static bool IsNotNullAndEmpty([NotNullWhen(true)] this string? value)
     {
-        return !string.IsNullOrWhiteSpace(value);
+        return !string.IsNullOrEmpty(value);
     }
 
     /// <summary>

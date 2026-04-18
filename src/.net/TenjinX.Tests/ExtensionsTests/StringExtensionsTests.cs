@@ -26,7 +26,7 @@ public static class StringExtensionsTests
     [Theory]
     [InlineData(null, false)]
     [InlineData(EmptyString, false)]
-    [InlineData(WhiteSpaceString, false)]
+    [InlineData(WhiteSpaceString, true)]
     [InlineData(TestString, true)]
     [InlineData(WhiteSpaceStringWithContent, true)]
     public static void IsNotNullAndEmpty_GivenParameters_EqualsTheExpectedResult(string? input, bool expected)
