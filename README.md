@@ -92,7 +92,7 @@ TenjinMimeTypeUtilities.GetAllFileExtensions("unknown/type");       // []
   * [System.String extensions](/docs/examples/extensions/stringextensions.cs.md)
   * [System.Threading.CancellationToken extensions](/docs/examples/extensions/cancellationtokenextensions.cs.md)  
   * [System.Type extensions](/docs/examples/extensions/typeextensions.cs.md)
-  * [Math extensions](/docs/examples/extensions/mathextensions.cs.md)
+  * [Math extensions](/docs/examples/extensions/mathsextensions.cs.md)
   * [Hashing extensions](/docs/examples/extensions/hashingextensions.cs.md)
 * Implementations
   * Collections
