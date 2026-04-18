@@ -45,8 +45,8 @@ public static class TenjinRandomGenerationUtilitiesTests
         double? maximumValue
     )
     {
-        var finalMinimumValue = minimumValue ?? TenjinRandomGenerationUtilities.MinimumDouble;
-        var finalMaximumValue = maximumValue ?? TenjinRandomGenerationUtilities.MaximumDouble;
+        var finalMinimumValue = minimumValue ?? TenjinRandomGenerationUtilities.RandomMinimumDouble;
+        var finalMaximumValue = maximumValue ?? TenjinRandomGenerationUtilities.RandomMaximumDouble;
         var parameters = new TenjinRandomGenerationParameters
         {
             MinimumDouble = minimumValue,
@@ -69,14 +69,14 @@ public static class TenjinRandomGenerationUtilitiesTests
         };
         var firstRunValues = RunDoubleRandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumDouble,
-            TenjinRandomGenerationUtilities.MaximumDouble,
+            TenjinRandomGenerationUtilities.RandomMinimumDouble,
+            TenjinRandomGenerationUtilities.RandomMaximumDouble,
             parameters1
         ).ToList();
         var secondRunValues = RunDoubleRandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumDouble,
-            TenjinRandomGenerationUtilities.MaximumDouble,
+            TenjinRandomGenerationUtilities.RandomMinimumDouble,
+            TenjinRandomGenerationUtilities.RandomMaximumDouble,
             parameters2
         ).ToList();
 
@@ -92,15 +92,15 @@ public static class TenjinRandomGenerationUtilitiesTests
         };
         var firstRunValues = RunDoubleRandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumDouble,
-            TenjinRandomGenerationUtilities.MaximumDouble,
+            TenjinRandomGenerationUtilities.RandomMinimumDouble,
+            TenjinRandomGenerationUtilities.RandomMaximumDouble,
             parameters,
             false
         ).ToList();
         var secondRunValues = RunDoubleRandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumDouble,
-            TenjinRandomGenerationUtilities.MaximumDouble,
+            TenjinRandomGenerationUtilities.RandomMinimumDouble,
+            TenjinRandomGenerationUtilities.RandomMaximumDouble,
             parameters,
             false
 
@@ -140,8 +140,8 @@ public static class TenjinRandomGenerationUtilitiesTests
         int? maximumValue
     )
     {
-        var finalMinimumValue = minimumValue ?? TenjinRandomGenerationUtilities.MinimumInt32;
-        var finalMaximumValue = maximumValue ?? TenjinRandomGenerationUtilities.MaximumInt32;
+        var finalMinimumValue = minimumValue ?? TenjinRandomGenerationUtilities.RandomMinimumInt32;
+        var finalMaximumValue = maximumValue ?? TenjinRandomGenerationUtilities.RandomMaximumInt32;
         var parameters = new TenjinRandomGenerationParameters
         {
             MinimumInt32 = minimumValue,
@@ -164,14 +164,14 @@ public static class TenjinRandomGenerationUtilitiesTests
         };
         var firstRunValues = RunInt32RandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumInt32,
-            TenjinRandomGenerationUtilities.MaximumInt32,
+            TenjinRandomGenerationUtilities.RandomMinimumInt32,
+            TenjinRandomGenerationUtilities.RandomMaximumInt32,
             parameters1
         ).ToList();
         var secondRunValues = RunInt32RandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumInt32,
-            TenjinRandomGenerationUtilities.MaximumInt32,
+            TenjinRandomGenerationUtilities.RandomMinimumInt32,
+            TenjinRandomGenerationUtilities.RandomMaximumInt32,
             parameters2
         ).ToList();
 
@@ -187,15 +187,15 @@ public static class TenjinRandomGenerationUtilitiesTests
         };
         var firstRunValues = RunInt32RandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumInt32,
-            TenjinRandomGenerationUtilities.MaximumInt32,
+            TenjinRandomGenerationUtilities.RandomMinimumInt32,
+            TenjinRandomGenerationUtilities.RandomMaximumInt32,
             parameters,
             false
         ).ToList();
         var secondRunValues = RunInt32RandomTests
         (
-            TenjinRandomGenerationUtilities.MinimumInt32,
-            TenjinRandomGenerationUtilities.MaximumInt32,
+            TenjinRandomGenerationUtilities.RandomMinimumInt32,
+            TenjinRandomGenerationUtilities.RandomMaximumInt32,
             parameters,
             false
 

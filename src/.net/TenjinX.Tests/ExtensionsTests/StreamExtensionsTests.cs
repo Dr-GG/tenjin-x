@@ -49,12 +49,12 @@ public static class StreamExtensionsTests
     }
 
     [Fact]
-    public static async Task ReadAsByteArray_GivenStream_ReturnsCorrectByteArray()
+    public static async Task ReadAsByteEnumerable_GivenStream_ReturnsCorrectByteArray()
     {
         var stringValue = Guid.NewGuid().ToString();
         var expectedBytes = Encoding.UTF8.GetBytes(stringValue);
         var stream = CreateStreamFromString(stringValue);
-        var result = await stream.ReadAsByteArray();
+        var result = await stream.ReadAsByteEnumerable();
 
         result.Should().BeEquivalentTo(expectedBytes);
     }

@@ -46,30 +46,30 @@ public static class DictionaryExtensionsTests
     }
 
     [Fact]
-    public static void TryAdd_WhenCalledWithAsyncFunctionWithItemsThatDoNotExist_ShouldAddItemAndReturnTrue()
+    public static async Task TryAdd_WhenCalledWithAsyncFunctionWithItemsThatDoNotExist_ShouldAddItemAndReturnTrue()
     {
         var dictionary = CollectionTestFixtures.PartialFruitDictionary;
-        var result = dictionary.TryAdd(4, async () =>
+        var result = await dictionary.TryAdd(4, async () =>
         {
             await Task.Delay(10);
             return "Date";
         });
 
-        result.Should().BeTrue();
+        result.Should().Be(true);
         dictionary.Should().ContainKey(4).WhoseValue.Should().Be("Date");
     }
 
     [Fact]
-    public static void TryAdd_WhenCalledWithAsyncFunctionWithItemsThatExist_ShouldNotAddItemAndReturnFalse()
+    public static async Task TryAdd_WhenCalledWithAsyncFunctionWithItemsThatExist_ShouldNotAddItemAndReturnFalse()
     {
         var dictionary = CollectionTestFixtures.PartialFruitDictionary;
-        var result = dictionary.TryAdd(2, async () =>
+        var result = await dictionary.TryAdd(2, async () =>
         {
             await Task.Delay(10);
             return "Blueberry";
         });
 
-        result.Should().BeFalse();
+        result.Should().Be(false);
         dictionary.Should().NotContainKey(4);
         dictionary[2].Should().Be("Banana");
     }

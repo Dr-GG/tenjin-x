@@ -22,7 +22,10 @@ public class TenjinHashCodeDictionary<T> : ITenjinHashCodeDictionary<T> where T 
     /// <summary>
     /// Creates a new instance from an existing collection.
     /// </summary>
-    /// <param name="collection"></param>
+    /// <remarks>
+    /// This constructor uses the <see cref="object.GetHashCode"/> method to generate the keys for the dictionary. 
+    /// If there are duplicate hash codes, the last item with that hash code will be stored in the dictionary.
+    /// </remarks>
     public TenjinHashCodeDictionary(IEnumerable<T> collection)
     {
         _dictionary = new Dictionary<int, T>();
@@ -150,7 +153,7 @@ public class TenjinHashCodeDictionary<T> : ITenjinHashCodeDictionary<T> where T 
     /// <inheritdoc />
     public void CopyTo(ITenjinHashCodeDictionary<T> destination)
     {
-        using var enumerator = _dictionary.GetEnumerator();
+        var enumerator = _dictionary.GetEnumerator();
 
         while (enumerator.MoveNext())
         {

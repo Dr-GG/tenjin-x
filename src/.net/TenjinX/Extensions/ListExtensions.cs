@@ -62,8 +62,8 @@ public static class ListExtensions
         IComparer<T> comparer
     )
     {
-        var array = list.ToArray();
-        var binaryIndex = Array.BinarySearch(array, item, comparer);
+        var enumeratedList = list.EnumerateToList();
+        var binaryIndex = enumeratedList.BinarySearch(item, comparer);
 
         if (binaryIndex < 0)
         {

@@ -29,16 +29,14 @@ public static class EnumExtensions
     /// </summary>
     public static TEnum MergeFlags<TEnum>(this IEnumerable<TEnum> flags) where TEnum : struct, Enum
     {
-        var result = 0;
+        ulong result = 0;
 
-        flags
-            .Select(flag => flag.GetHashCode())
-            .ForEach(flag =>
-            {
-                result |= flag;
-            });
+        foreach (var flag in flags)
+        {
+            result |= Convert.ToUInt64(flag);
+        }
 
-        return (TEnum)(object)result;
+        return (TEnum)Enum.ToObject(typeof(TEnum), result);
     }
 
     /// <summary>

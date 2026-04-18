@@ -81,7 +81,7 @@ TenjinMimeTypeUtilities.GetAllFileExtensions("unknown/type");       // []
 
 * Extensions
   * [System.Collections.Generic.ICollection<T> extensions](/docs/examples/extensions/collectionextensions.cs.md)
-  * [System.Collections.Generic.IDictionary<TKey, TValue> extensions](/docs/examples/extensions/dictionaryextensionds.cs.md)
+  * [System.Collections.Generic.IDictionary<TKey, TValue> extensions](/docs/examples/extensions/dictionaryextensions.cs.md)
   * [System.Collections.Generic.IEnumerable<T> extensions](/docs/examples/extensions/enumerableextensions.cs.md)
   * [System.Collections.Generic.IList<T> extensions](/docs/examples/extensions/listextensions.cs.md)  
   * [System.DateOnly extensions](/docs/examples/extensions/dateonlyextensions.cs.md)  
@@ -91,8 +91,8 @@ TenjinMimeTypeUtilities.GetAllFileExtensions("unknown/type");       // []
   * [System.Object extensions](/docs/examples/extensions/objectsextensions.cs.md)
   * [System.String extensions](/docs/examples/extensions/stringextensions.cs.md)
   * [System.Threading.CancellationToken extensions](/docs/examples/extensions/cancellationtokenextensions.cs.md)  
-  * [System.Type extensions](/docs/examples/extensions/typextensions.cs.md)
-  * [Math extensions](/docs/examples/extensions/listextensions.cs.md)
+  * [System.Type extensions](/docs/examples/extensions/typeextensions.cs.md)
+  * [Math extensions](/docs/examples/extensions/mathextensions.cs.md)
   * [Hashing extensions](/docs/examples/extensions/hashingextensions.cs.md)
 * Implementations
   * Collections
