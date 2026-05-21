@@ -44,7 +44,7 @@ public static class EnumerableExtensions
     /// <summary>
     /// Determines if an <see cref="IEnumerable{T}"/> is not null and contains at least one item.
     /// </summary>
-    public static bool IsNotNullOrEmpty<T>([NotNullWhen(true)] this IEnumerable<T>? enumerable)
+    public static bool IsNotNullAndEmpty<T>([NotNullWhen(true)] this IEnumerable<T>? enumerable)
     {
         return enumerable?.Any() ?? false;
     }

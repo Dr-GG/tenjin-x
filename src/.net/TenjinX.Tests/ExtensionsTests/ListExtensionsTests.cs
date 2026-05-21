@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using TenjinX.Extensions;
 using TenjinX.Tests.TestFixtures;
 

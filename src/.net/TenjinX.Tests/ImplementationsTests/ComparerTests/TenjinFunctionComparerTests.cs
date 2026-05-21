@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using TenjinX.Implementations.Comparers;
 
 namespace TenjinX.Tests.ImplementationsTests.ComparerTests;
