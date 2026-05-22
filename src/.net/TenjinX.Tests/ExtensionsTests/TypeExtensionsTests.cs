@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using Moq;
 using TenjinX.Exceptions;
 using TenjinX.Extensions;

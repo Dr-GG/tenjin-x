@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using System.Text.RegularExpressions;
 using TenjinX.Exceptions.Random;
 using TenjinX.Models.Random;

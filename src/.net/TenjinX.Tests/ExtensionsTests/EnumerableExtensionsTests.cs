@@ -1,6 +1,5 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using TenjinX.Extensions;
-using TenjinX.Models.Enumerables;
 using TenjinX.Tests.TestFixtures;
 
 namespace TenjinX.Tests.ExtensionsTests;
@@ -90,28 +89,28 @@ public static class EnumerableExtensionsTests
     }
 
     [Fact]
-    public static void IsNotNullOrEmpty_WhenEnumerableIsNull_ShouldReturnFalse()
+    public static void IsNotNullAndEmpty_WhenEnumerableIsNull_ShouldReturnFalse()
     {
         IEnumerable<string>? enumerable = null;
-        var result = enumerable.IsNotNullOrEmpty();
+        var result = enumerable.IsNotNullAndEmpty();
 
         result.Should().BeFalse();
     }
 
     [Fact]
-    public static void IsNotNullOrEmpty_WhenEnumerableIsEmpty_ShouldReturnFalse()
+    public static void IsNotNullAndEmpty_WhenEnumerableIsEmpty_ShouldReturnFalse()
     {
         var emptyEnumerable = Enumerable.Empty<string>();
-        var result = emptyEnumerable.IsNotNullOrEmpty();
+        var result = emptyEnumerable.IsNotNullAndEmpty();
 
         result.Should().BeFalse();
     }
 
     [Fact]
-    public static void IsNotNullOrEmpty_WhenEnumerableHasItems_ShouldReturnTrue()
+    public static void IsNotNullAndEmpty_WhenEnumerableHasItems_ShouldReturnTrue()
     {
         var enumerable = CollectionTestFixtures.FullFruitEnumerable;
-        var result = enumerable.IsNotNullOrEmpty();
+        var result = enumerable.IsNotNullAndEmpty();
 
         result.Should().BeTrue();
     }

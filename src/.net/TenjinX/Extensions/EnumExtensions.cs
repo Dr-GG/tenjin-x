@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using TenjinX.Exceptions;
 
@@ -37,56 +38,5 @@ public static class EnumExtensions
         }
 
         return (TEnum)Enum.ToObject(typeof(TEnum), result);
-    }
-
-    /// <summary>
-    /// Attempts parse a <see cref="string"/> as an enum of type <typeparamref name="TEnum"/>.
-    /// </summary>
-    /// <exception cref="TenjinException">
-    /// Thrown when the provided value cannot be parsed as the specified enum type.
-    /// </exception>
-    public static TEnum ParseAsEnum<TEnum>
-    (
-        this string value,
-        bool ignoreCase = true
-    ) where TEnum : struct, Enum
-    {
-        if (Enum.TryParse<TEnum>(value, ignoreCase, out var result))
-        {
-            return result;
-        }
-
-        throw new TenjinException($"An invalid enum value '{value}' was provided for {typeof(TEnum).Name}.");
-    }
-
-    /// <summary>
-    /// Attempts to parse a <see cref="string"/> as a nullable enum of type <typeparamref name="TEnum"/>.
-    /// </summary>
-    public static TEnum? ParseAsNullableEnum<TEnum>
-    (
-        this string? value,
-        TEnum? defaultValue = null,
-        bool ignoreCase = true
-    ) where TEnum : struct, Enum
-    {
-        if (Enum.TryParse<TEnum>(value, ignoreCase, out var result))
-        {
-            return result;
-        }
-
-        return defaultValue;
-    }
-
-    /// <summary>
-    /// Attempts to convert a <see cref="string"/> to an enum of type <typeparamref name="TEnum"/>.
-    /// </summary>
-    public static bool TryParseAsEnum<TEnum>
-    (
-        this string value,
-        out TEnum result,
-        bool ignoreCase = true
-    ) where TEnum : struct, Enum
-    {
-        return Enum.TryParse(value, ignoreCase, out result);
     }
 }

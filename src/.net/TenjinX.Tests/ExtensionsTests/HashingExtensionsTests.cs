@@ -1,5 +1,5 @@
-﻿using FluentAssertions;
-using FluentAssertions.Common;
+﻿using AwesomeAssertions;
+using AwesomeAssertions.Common;
 using TenjinX.Enums;
 using TenjinX.Exceptions;
 using TenjinX.Extensions;

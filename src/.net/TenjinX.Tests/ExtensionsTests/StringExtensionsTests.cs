@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using TenjinX.Extensions;
 
 namespace TenjinX.Tests.ExtensionsTests;
@@ -103,9 +103,9 @@ public static class StringExtensionsTests
     [InlineData(WhiteSpaceString, false)]
     [InlineData(TestString, true)]
     [InlineData(WhiteSpaceStringWithContent, true)]
-    public static void IsNotEmptyOrWhiteSpace_GivenParameters_EqualsTheExpectedResult(string input, bool expected)
+    public static void IsNotEmptyAndWhiteSpace_GivenParameters_EqualsTheExpectedResult(string input, bool expected)
     {
-        var result = input.IsNotEmptyOrWhiteSpace();
+        var result = input.IsNotEmptyAndWhiteSpace();
 
         result.Should().Be(expected);
     }

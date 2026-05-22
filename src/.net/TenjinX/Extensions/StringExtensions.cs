@@ -67,7 +67,7 @@ public static class StringExtensions
     /// <summary>
     /// Determines if a <see cref="string"/> instance does not consist only of white-space characters.
     /// </summary>
-    public static bool IsNotEmptyOrWhiteSpace(this string value)
+    public static bool IsNotEmptyAndWhiteSpace(this string value)
     {
         return !string.IsNullOrWhiteSpace(value);
     }

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using TenjinX.Implementations.Providers;
 
 namespace TenjinX.Tests.ImplementationsTests.ProviderTests;
